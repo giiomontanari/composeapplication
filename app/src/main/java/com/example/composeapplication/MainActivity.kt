@@ -3,14 +3,17 @@ package com.example.composeapplication
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.composeapplication.ui.theme.ComposeApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,16 +28,27 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun primaryScreen() {
-        Column() {
-            Text(
-                text = "First text compose"
-            )
-            Text(
-                text = "Giovanni Montanari"
-            )
-            Text(
-                text = "Matheus Cunha Montanari"
-            )
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    backgroundColor = Color.Blue
+                ) {
+                    Text(
+                        text = "Primeiro TopBar",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                }
+            }
+        ) { padding ->
+            Column(
+                modifier = Modifier.padding(padding).background(Color.Red)
+            ) {
+                Text("Text 1")
+                Text("Text 2")
+                Text("Text 3")
+            }
         }
     }
 
