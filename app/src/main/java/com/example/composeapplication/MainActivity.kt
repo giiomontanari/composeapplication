@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -43,7 +41,11 @@ class MainActivity : ComponentActivity() {
             }
         ) { padding ->
             Column(
-                modifier = Modifier.padding(padding).background(Color.Red)
+                modifier = Modifier
+                    .padding(padding)
+                    .background(Color.White)
+                    .fillMaxWidth()
+                    .fillMaxHeight()
             ) {
                 Text("Text 1")
                 Text("Text 2")
